@@ -1,0 +1,17 @@
+img {
+    width: 100%;
+}
+
+
+header {
+    .logo {
+        filter: invert(1);
+        width: 70%;
+    }
+}
+footer {
+    background-color: #333338;
+    p {
+        margin: 0;
+    }
+}
