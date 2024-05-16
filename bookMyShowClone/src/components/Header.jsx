@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -7,7 +8,9 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-2">
-              <img src="https://in.bmscdn.com/webin/common/icons/logo.svg" alt="" className='logo'/>
+              <Link to="/">
+                <img src="https://in.bmscdn.com/webin/common/icons/logo.svg" alt="" className='logo'/>
+              </Link>
             </div>
             <div className="col-md-8">
               <input type="text" className="form-control" placeholder='Search for Movies' />
