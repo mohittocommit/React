@@ -10,8 +10,10 @@ import SubHeader from './components/SubHeader';
 import Footer from './components/Footer';
 // Routes
 import Home from './pages/Home';
+import Counter from './pages/Counter';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import ToDo from './pages/ToDo';
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
           <SubHeader />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/pages/todo" element={<ToDo />} />
+            <Route path="pages/counter" element={<Counter />} />
             <Route path="/pages/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

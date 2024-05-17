@@ -1,3 +1,6 @@
+body {
+  font-size: 14px;
+}
 p, ul, h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
@@ -12,7 +15,6 @@ header {
     width: 70%;
   }
 }
-// subheader
 .sub-header {
     background: #f5f5f5;
     padding: 10px;
@@ -30,6 +32,41 @@ header {
 }
 footer {
   background-color: #333338;
+  width: 100%;
+  position: fixed; /* or position: absolute; */
+  bottom: 0;
+}
+
+// Pages CSS
+.page {
+  padding: 15px 0;
+}
+// Page Counter
+.page-counter {
+  flex-wrap: wrap;
+    align-items: center;
+    height: calc(100vh - 220px);
+    display: flex;
+  .counter-container {
+    text-align: center;
+    .counter-value {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      font-size: 20px;
+      padding: 5px 20px;
+    }
+  }
+}
+// Page ToDo
+.page-todo {
+  .todo-inner {
+    max-width: 500px;
+      margin: 30px auto;
+  }
 }
 
 // Page Not Found

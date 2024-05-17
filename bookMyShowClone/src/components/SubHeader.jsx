@@ -8,8 +8,9 @@ const SubHeader = () => {
         <div className='container'>
             <div className="row">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/">Movies</Link></li>
+                    <li><Link to="/pages/counter">Counter</Link></li>
+                    <li><Link to="pages/todo">To Do</Link></li>
                     <li><Link to="/pages/contact">Contact</Link></li>
                 </ul>
             </div>
