@@ -8,15 +8,16 @@ const ToDo = () => {
         setToDoItem(e.target.value)
     }
     const handleAddToDo = () => {
-        setToDoList([...toDoList, toDoItem]);
-        setToDoItem(''); // Clear the input field
+        if(!toDoList.includes(toDoItem)) {
+            setToDoList([...toDoList, toDoItem]);
+            setToDoItem('');
+        }
     }
     const handleToDoDelete = (index) =>  {
         const updatedToDo = toDoList.filter((item,i)=> index !== i)
         setToDoList(updatedToDo);
     }
 
-    console.log(toDoList)
     return (
         <div className='page-todo page'>
             <div className="container">
