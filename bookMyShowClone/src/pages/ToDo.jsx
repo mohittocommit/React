@@ -8,30 +8,31 @@ const ToDo = () => {
     const [toDoList, setToDoList] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
-
     const handleToDoChange = (e) => {
         setToDoItem(e.target.value)
     }
     const handleAddToDo = () => {
         const updatedToDo = [...toDoList];
+        console.log("updatedToDo",updatedToDo)
         if(isEditing) {
-            updatedToDo[currentIndex] = toDoItem;
+            updatedToDo[currentIndex].text = toDoItem;
             setToDoList(updatedToDo)
             setIsEditing(false);
             setCurrentIndex(null);
             setToDoItem('');
             showToast('To Do Updated Successfully!', 'success');
         } else {
-            if(!toDoList.includes(toDoItem)) {
-                setToDoList([...toDoList, toDoItem]);
+            if(!toDoList.some(item => item.text === toDoItem)) {
+                setToDoList([...toDoList, {text: toDoItem}]);
+                localStorage.setItem('toDOList',JSON.stringify(toDoList))
                 setToDoItem('');
                 showToast('To Do Added Successfully!', 'success');
             }
         }
     }
     const handleToDoEdit = (index) => {
-        setToDoItem(toDoList[index])
         setIsEditing(true)
+        setToDoItem(toDoList[index].text)
         setCurrentIndex(index)
     }
     const handleToDoDelete = (index) =>  {
@@ -40,6 +41,7 @@ const ToDo = () => {
         setToDoList(updatedToDo);
         showToast('To Do Deleted Successfully!', 'error');
     }
+    console.log({toDoItem: toDoItem,toDoList: toDoList})
     return (
         <div className='page-todo page'>
             <div className="container">
@@ -53,7 +55,6 @@ const ToDo = () => {
                     </div>
                 </div>
             </div>
-            
         </div>
     )
 }
