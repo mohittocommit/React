@@ -5,18 +5,20 @@ import ToDoAdd from '../components/ToDo/ToDoAdd';
 
 const ToDo = () => {
     const [toDoItem, setToDoItem] = useState('');
-    const [toDoList, setToDoList] = useState([]);
+    const [toDoList, setToDoList] = useState(localStorage.getItem("toDOList") ? JSON.parse(localStorage.getItem("toDOList")) : [] );
     const [isEditing, setIsEditing] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
+    console.log(toDoList);
     const handleToDoChange = (e) => {
         setToDoItem(e.target.value)
     }
     const handleAddToDo = () => {
-        const updatedToDo = [...toDoList];
-        console.log("updatedToDo",updatedToDo)
+        
         if(isEditing) {
+            const updatedToDo = [...toDoList];
             updatedToDo[currentIndex].text = toDoItem;
             setToDoList(updatedToDo)
+            localStorage.setItem('toDOList',JSON.stringify(updatedToDo))
             setIsEditing(false);
             setCurrentIndex(null);
             setToDoItem('');
@@ -24,7 +26,8 @@ const ToDo = () => {
         } else {
             if(!toDoList.some(item => item.text === toDoItem)) {
                 setToDoList([...toDoList, {text: toDoItem}]);
-                localStorage.setItem('toDOList',JSON.stringify(toDoList))
+                const updatedToDo = [...toDoList, {text: toDoItem}]
+                localStorage.setItem('toDOList',JSON.stringify(updatedToDo))
                 setToDoItem('');
                 showToast('To Do Added Successfully!', 'success');
             }
@@ -39,6 +42,7 @@ const ToDo = () => {
         const updatedToDo = [...toDoList];
         updatedToDo.splice(index, 1);
         setToDoList(updatedToDo);
+        localStorage.setItem('toDOList',JSON.stringify(updatedToDo))
         showToast('To Do Deleted Successfully!', 'error');
     }
     console.log({toDoItem: toDoItem,toDoList: toDoList})
