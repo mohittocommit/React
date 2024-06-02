@@ -22,7 +22,7 @@ const Blog = () => {
     return (
         <>
             <div className='page-blog page'>
-                <div className="container mt-5">
+                <div className="container mt-2">
                     <h1 className="mb-4">Blog</h1>
                     <table className="table table-striped">
                         <thead>
