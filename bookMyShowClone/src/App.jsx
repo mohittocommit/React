@@ -13,9 +13,10 @@ import Footer from './components/Common/Footer';
 // Routes
 import Home from './pages/Home';
 import Counter from './pages/Counter';
+import ToDo from './pages/ToDo';
+import GitHubUsers from './pages/GitHubUsers';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
-import ToDo from './pages/ToDo';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/pages/todo" element={<ToDo />} />
             <Route path="pages/counter" element={<Counter />} />
+            <Route path ="pages/githubusers" element={<GitHubUsers />} />
             <Route path="/pages/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
