@@ -14,6 +14,7 @@ import Footer from './components/Common/Footer';
 import Home from './pages/Home';
 import Counter from './pages/Counter';
 import ToDo from './pages/ToDo';
+import Blog from './pages/blog/Blog';
 import GitHubUsers from './pages/GitHubUsers';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/pages/todo" element={<ToDo />} />
             <Route path="pages/counter" element={<Counter />} />
+            <Route path="pages/blog" element={<Blog />} />
             <Route path ="pages/githubusers" element={<GitHubUsers />} />
             <Route path="/pages/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
