@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 
 const Blog = () => {
-    const [gitUserData, setGitUserData] = useState([]);
+    const [gitUserData, setBlogData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const fetchGitUserList = async () => {
+    const fetchBlogList = async () => {
         try {
             const response = await axios.get("http://localhost:9001/posts");
-            setGitUserData(response.data)
+            setBlogData(response.data)
         } catch (error) {
             console.log(error)
         } finally {
@@ -17,13 +17,13 @@ const Blog = () => {
     }
 
     useEffect(() => {
-        fetchGitUserList();
+        fetchBlogList();
     }, [])
     return (
         <>
             <div className='page-blog page'>
                 <div className="container mt-5">
-                    <h1 className="mb-4">GitHub Users</h1>
+                    <h1 className="mb-4">Blog</h1>
                     <table className="table table-striped">
                         <thead>
                             <tr>
