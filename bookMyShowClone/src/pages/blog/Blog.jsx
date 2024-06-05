@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
     const [gitUserData, setBlogData] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
     const fetchBlogList = async () => {
         try {
             const response = await axios.get("http://localhost:9001/posts");
@@ -15,7 +17,9 @@ const Blog = () => {
             setLoading(false);
         }
     }
-
+    const handleNavigateAddPost = () => {
+        navigate("/pages/add-post")
+    }
     useEffect(() => {
         fetchBlogList();
     }, [])
@@ -24,6 +28,9 @@ const Blog = () => {
             <div className='page-blog page'>
                 <div className="container mt-2">
                     <h1 className="mb-4">Blog</h1>
+                    <button className='btn btn-dark ms-1' onClick={handleNavigateAddPost}>
+                        Add New
+                    </button>
                     <table className="table table-striped">
                         <thead>
                             <tr>

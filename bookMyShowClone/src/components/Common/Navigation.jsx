@@ -11,6 +11,7 @@ import Home from '../../pages/Home';
 import Counter from '../../pages/Counter';
 import ToDo from '../../pages/ToDo';
 import Blog from '../../pages/blog/Blog';
+import AddPost from '../../pages/blog/AddPost';
 import GitHubUsers from '../../pages/GitHubUsers';
 import Contact from '../../pages/Contact';
 import NotFound from '../../pages/NotFound';
@@ -22,7 +23,7 @@ const Navigation = () => {
     const { theme } = useContext(ThemeContext);
     return (
         <>
-            <div className={theme === "light" ? "lightTheme" : "DarkTheme"}>
+            <div className={theme === "light" ? "lightTheme" : "darkTheme"}>
                 <BrowserRouter>
                     <Header />
                     <SubHeader />
@@ -31,6 +32,7 @@ const Navigation = () => {
                         <Route path="/pages/todo" element={<ToDo />} />
                         <Route path="pages/counter" element={<Counter />} />
                         <Route path="pages/blog" element={<Blog />} />
+                        <Route path="pages/add-post" element={<AddPost />} />
                         <Route path="pages/githubusers" element={<GitHubUsers />} />
                         <Route path="/pages/contact" element={<Contact />} />
                         <Route path="*" element={<NotFound />} />

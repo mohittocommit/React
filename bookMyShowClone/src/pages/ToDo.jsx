@@ -8,10 +8,10 @@ const ToDo = () => {
     const [toDoList, setToDoList] = useState(localStorage.getItem("toDOList") ? JSON.parse(localStorage.getItem("toDOList")) : [] );
     const [isEditing, setIsEditing] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
-    console.log(toDoList);
     const handleToDoChange = (e) => {
         setToDoItem(e.target.value)
     }
+    console.log(toDoList)
     const handleAddToDo = () => {
         
         if(isEditing) {
@@ -45,15 +45,14 @@ const ToDo = () => {
         localStorage.setItem('toDOList',JSON.stringify(updatedToDo))
         showToast('To Do Deleted Successfully!', 'error');
     }
-    console.log({toDoItem: toDoItem,toDoList: toDoList})
     return (
         <div className='page-todo page'>
             <div className="container">
                 <div className="row">
                     <div className="todo-inner">
-                        <h1 class="text-center mb-4">To-Do List</h1>
+                        <h1 className="text-center mb-4">To-Do List</h1>
                         <ToDoAdd toDoItem={toDoItem} handleToDoChange={handleToDoChange} handleAddToDo={handleAddToDo} />
-                        <ul class="list-group">
+                        <ul className="list-group">
                             <ToDoList toDoList={toDoList} handleToDoEdit={handleToDoEdit} handleToDoDelete={handleToDoDelete} />
                         </ul>
                     </div>

@@ -18,8 +18,8 @@ const Header = () => {
               <input type="text" className="form-control" placeholder='Search for Movies' />
             </div>
             <div className="col-md-2">
-              <button type="button" class="btn btn-danger">Sign In</button>
-              <button type="button" class="btn btn-dark ms-1" onClick={toggleTheme}>{theme === "light" ? "Dark Mode" : "Light Mode"}</button>
+              <button type="button" className="btn btn-danger">Sign In</button>
+              <button type="button" className="btn btn-dark ms-1" onClick={toggleTheme}>{theme === "light" ? "Dark Mode" : "Light Mode"}</button>
             </div>
           </div>
         </div>
