@@ -11,7 +11,7 @@ import Home from '../../pages/Home';
 import Counter from '../../pages/Counter';
 import ToDo from '../../pages/ToDo';
 import Blog from '../../pages/blog/Blog';
-import AddPost from '../../pages/blog/AddPost';
+import AddPost from '../../pages/admin/AddPost';
 import GitHubUsers from '../../pages/GitHubUsers';
 import Contact from '../../pages/Contact';
 import NotFound from '../../pages/NotFound';
