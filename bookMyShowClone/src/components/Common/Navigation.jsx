@@ -11,6 +11,7 @@ import Home from '../../pages/Home';
 import Counter from '../../pages/Counter';
 import ToDo from '../../pages/ToDo';
 import Blog from '../../pages/blog/Blog';
+import BlogDetail from '../../pages/blog/BlogDetail';
 import AddPost from '../../pages/admin/AddPost';
 import GitHubUsers from '../../pages/GitHubUsers';
 import Contact from '../../pages/Contact';
@@ -32,6 +33,7 @@ const Navigation = () => {
                         <Route path="/pages/todo" element={<ToDo />} />
                         <Route path="pages/counter" element={<Counter />} />
                         <Route path="pages/blog" element={<Blog />} />
+                        <Route path="posts/:id" element={<BlogDetail />} />
                         <Route path="pages/add-post" element={<AddPost />} />
                         <Route path="pages/githubusers" element={<GitHubUsers />} />
                         <Route path="/pages/contact" element={<Contact />} />

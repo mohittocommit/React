@@ -114,7 +114,7 @@ const Blog = () => {
                                                 <td className="align-middle">{item.title}</td>
                                                 <td className="align-middle">{item.category}</td>
                                                 <td className="align-middle">
-                                                    <Link to="">Read More</Link>
+                                                    <Link to={`/posts/${item.id}`}>Read More</Link>
                                                 </td>
                                                 <td className="align-middle">
                                                     Edit | Delete
