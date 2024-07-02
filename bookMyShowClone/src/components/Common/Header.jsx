@@ -1,9 +1,13 @@
 import React, {useContext} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ThemeContext from '../../context/ThemeContext';
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const loginNavigate = useNavigate();
+  const handleLoginNavigate = () => {
+    loginNavigate("/login")
+  }
   return (
     <>
       <header className='pt-4 pb-4'>
@@ -18,7 +22,7 @@ const Header = () => {
               <input type="text" className="form-control" placeholder='Search for Movies' />
             </div>
             <div className="col-md-2">
-              <button type="button" className="btn btn-danger">Sign In</button>
+              <button type="button" className="btn btn-danger" onClick={handleLoginNavigate}>Sign In</button>
               <button type="button" className="btn btn-dark ms-1" onClick={toggleTheme}>{theme === "light" ? "Dark Mode" : "Light Mode"}</button>
             </div>
           </div>

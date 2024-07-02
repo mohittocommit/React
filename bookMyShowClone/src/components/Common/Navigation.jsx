@@ -15,10 +15,14 @@ import BlogDetail from '../../pages/blog/BlogDetail';
 import AddPost from '../../pages/admin/AddPost';
 import GitHubUsers from '../../pages/GitHubUsers';
 import Contact from '../../pages/Contact';
+import Login from '../../pages/Login';
+import SignUp from '../../pages/SignUp';
+import ForgotPassword from '../../pages/ForgotPassword';
 import NotFound from '../../pages/NotFound';
 
 
 import ThemeContext from '../../context/ThemeContext';
+
 
 const Navigation = () => {
     const { theme } = useContext(ThemeContext);
@@ -37,6 +41,9 @@ const Navigation = () => {
                         <Route path="pages/add-post" element={<AddPost />} />
                         <Route path="pages/githubusers" element={<GitHubUsers />} />
                         <Route path="/pages/contact" element={<Contact />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="forgot-password" element={<ForgotPassword />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                     <Footer />
