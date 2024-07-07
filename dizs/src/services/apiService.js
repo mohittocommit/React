@@ -12,6 +12,14 @@ export const loginUser = async (userPayload) => {
         return handleError(error);
     }
 };
+export const getAllStudent = async (userPayload) => {
+    try {
+        const response = await authApi.post(apiEndpoints.allStudents, userPayload);
+        return response;
+    } catch (error) {
+        return handleError(error);
+    }
+};
 
 const handleError = (error) => {
     if (error.response) {

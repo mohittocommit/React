@@ -1,58 +1,52 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import '../styles/dashboard.css';
-import { Table } from 'antd';
+import Sidebar from '../components/dashboard/Sidebar';
+import TopBar from '../components/dashboard/TopBar';
+import Header from '../components/dashboard/Header';
+import DataTable from '../components/dashboard/DataTable';
+
+import useApiHandler from '../hooks/useApihandler';
+import { getAllStudent } from '../services/apiService';
 
 const Dashboard = () => {
-    const columns = [
-        {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-        },
-        {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-        },
-        {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
-        },
-    ];
-    const data = [
-        {
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-        },
-        {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-        },
-        {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-        },
-    ];
+    const { handleApiCall } = useApiHandler();
+
+    const [studentData, setStudentData] = useState([]);
+
+    const getAllStudentApi = async () => {
+        const payload ={
+            d5: "5535",
+            id: 123,
+            l1: 1,
+            l2: 0,
+            l3: 0,
+            l4: 6 
+        }
+        const result = await handleApiCall(
+            () => getAllStudent(payload),
+            async (response) => {
+                if (response.status) {
+                    setStudentData(response.data.data)
+                } else {
+                    console.error("All Student failed");
+                }
+            },
+            null
+        )
+    }
+    useEffect(() => {
+        getAllStudentApi();
+    }, [])
+
     return (
         <div className='page-dashboard page'>
             <section className='dashboard-section'>
                 <div className='dashboard-inner d-flex'>
-                    <div className='sidebar'>
-                        <h2>Dashboard</h2>
-                        <Link to="">Home</Link>
-                        <Link to="">Student</Link>
-                        <Link to="">Teacher</Link>
-                    </div>
+                    <Sidebar />
                     <div className='dashboard-content'>
-                        <Table columns={columns} dataSource={data} />
+                        <TopBar />
+                        <Header />
+                        <DataTable studentData={studentData}/>
                     </div>
                 </div>
             </section>

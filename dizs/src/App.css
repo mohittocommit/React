@@ -15,13 +15,22 @@ body {
 }
 button {
   background-color: var(--primary-color);
-  padding: 14px 30px;
+  padding: 12px 30px;
   border: none;
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
   font-size: 16px;
+}
+button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.btn-light {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid;
 }
 a {
   text-decoration: none;
@@ -50,17 +59,40 @@ h5 {
   font-size: 24px;
 }
 h6 {
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 500;
 }
 .container{
   width: 90%;
   margin: 0 auto;
 }
-.error {
-  color: red;
-  display: block;
-  margin-top: 5px;
+
+/* table UI  */
+.table-data {
+  overflow: auto;
+}
+table {
+  width: 1600px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+thead {
+  background-color: #f2f2f2;
+}
+th {
+  border-bottom: 1px solid #e2e2e2;
+}
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tbody tr:hover {
+  background-color: #ddd;
 }
 
 /* flex box */
@@ -73,13 +105,16 @@ h6 {
 .justify-content-center {
   justify-content: center;
 }
+.justify-content-space-between {
+  justify-content: space-between;
+}
 .align-items-center {
   align-items: center;
 }
 
 /* form global styling */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: left;
 }
 .form-group label {
@@ -96,4 +131,11 @@ h6 {
 }
 .form-group button:hover {
   background-color: var(--secondary-color);
+}
+.form-group .error {
+  color: red;
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  margin-top: 5px;
 }

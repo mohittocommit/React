@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 import { loginUser } from "../services/apiService";
 import useApiHandler from '../hooks/useApihandler';
@@ -10,6 +10,7 @@ import { validateMobile, validatePassword } from '../utils/validation';
 const Login = () => {
     const { handleApiCall } = useApiHandler();
     const { userData, setUserData } = useUser();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         mobile: "",
@@ -28,32 +29,35 @@ const Login = () => {
             [name]: value
         })
     }
+    const handleKeyUp = () => {
+        validateFields();
+    };
     const validateFields = () => {
         const newErrors = {
             mobile: validateMobile(formData.mobile) ? "" : "Invalid mobile number",
-            password: validatePassword(formData.password) ? "" : "Password must be at least 6 characters"
+            password: validatePassword(formData.password) ? "" : "Password must be at least 4 characters"
         };
         setErrors(newErrors);
 
         setIsFormValid(!newErrors.mobile && !newErrors.password);
     };
 
-    useEffect(() => {
-        validateFields();
-    }, [formData]);
     const handleLogin = async (e) => {
         e.preventDefault(); // Prevent default form submission
 
         const payload = {
-            mobile: formData.mobile,
-            password: formData.password
+            d20: "123",
+            d1: formData.mobile,
+            d2: formData.password,
+            d3: "web"
         };
         const result = await handleApiCall(
             () => loginUser(payload),
             async (response) => {
                 if (response.status) {
                     setUserData(response.data); // Update user data in context if needed
-                    console.log(response);
+                    localStorage.setItem('token',"iuhgihj")
+                    navigate("/dashboard")
                     // Redirect to dashboard or handle success scenario
                 } else {
                     console.error("Login failed");
@@ -74,13 +78,14 @@ const Login = () => {
                             <h6>Enter your Mobile and Password to Sign In.</h6>
                             <form onSubmit={handleLogin}>
                                 <div className="form-group">
-                                    <label htmlFor="email">Mobile Number- User ID</label>
+                                    <label htmlFor="mobile">Mobile Number- User ID</label>
                                     <Input
                                         type="text"
                                         name="mobile"
                                         placeholder="Enter Mobile Number"
-                                        value={formData.email}
+                                        value={formData.mobile}
                                         onChange={handleChange}
+                                        onKeyUp={handleKeyUp}
                                         required
                                     />
                                     {errors.mobile && <span className="error">{errors.mobile}</span>}
@@ -93,6 +98,7 @@ const Login = () => {
                                         placeholder="********"
                                         value={formData.password}
                                         onChange={handleChange}
+                                        onKeyUp={handleKeyUp}
                                         required
                                     />
                                     {errors.password && <span className="error">{errors.password}</span>}

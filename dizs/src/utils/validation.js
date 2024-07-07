@@ -5,5 +5,5 @@ export const validateMobile = (mobile) => {
 
 export const validatePassword = (password) => {
     // Example password validation: at least 6 characters
-    return password.length >= 6;
+    return password.length >= 4;
 };
