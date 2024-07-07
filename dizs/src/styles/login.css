@@ -1,26 +1,26 @@
 .login-section {
-    background-color: #f0f0f0;
-}
-.login-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
+    padding: 30px;
     height: 100vh;
-    font-family: Arial, sans-serif;
 }
 .login-box {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 350px;
-    max-width: 100%;
+    margin: 0 auto;
+}
+.login-left, .login-right {
+    width: 50%;
+}
+.login-left h2, h6 {
     text-align: center;
 }
-.login-box  h2 {
-    margin-bottom: 20px;
-    color: #333;
+.login-left h6 {
+    margin: 20px 0 40px;
 }
+.login-right img {
+    border-radius: 10px;
+    border-radius: 18px;
+}
+
 .form-group.forgot-password-link {
     margin-top: 10px;
     text-align: right;

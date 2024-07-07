@@ -11,14 +11,14 @@ const ForgotPassword = () => {
                         <div className='login-box'>
                             <h2>Recover Password</h2>
                             <form>
-                                <div class="form-group">
-                                    <label for="email">Email:</label>
+                                <div className="form-group">
+                                    <label htmlFor="email">Email:</label>
                                     <Input type="email" name="email" required />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <button type="submit">Recover</button>
                                 </div>
-                                <div class="form-group signup-link">
+                                <div className="form-group signup-link">
                                     Remember your password? <Link to="/login">Log In</Link>
                                 </div>
                             </form>

@@ -11,27 +11,26 @@ const Signup = () => {
                         <div className='login-box'>
                             <h2>Sign Up</h2>
                             <form>
-                                <div class="form-group">
-                                    <label for="username">Name:</label>
+                                <div className="form-group">
+                                    <label htmlFor="username">Name:</label>
                                     <Input type="text" name="name" required/>
-                                    <input  />
                                 </div>
-                                <div class="form-group">
-                                    <label for="username">Email:</label>
+                                <div className="form-group">
+                                    <label htmlFor="username">Email:</label>
                                     <Input type="email" name="email" required />
                                 </div>
-                                <div class="form-group">
-                                    <label for="username">Phone:</label>
+                                <div className="form-group">
+                                    <label htmlFor="username">Phone:</label>
                                     <Input type="text" name="phone" required />
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password:</label>
+                                <div className="form-group">
+                                    <label htmlFor="password">Password:</label>
                                     <Input type="password" name="password" required />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <button type="submit">Sign Up</button>
                                 </div>
-                                <div class="form-group signup-link">
+                                <div className="form-group signup-link">
                                     Already have an account? <Link to="/login">Log In</Link>
                                 </div>
                             </form>
