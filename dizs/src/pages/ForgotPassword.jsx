@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Input from '../components/form/Input'
 
 const ForgotPassword = () => {
   return (
@@ -12,7 +13,7 @@ const ForgotPassword = () => {
                             <form>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" required />
+                                    <Input type="email" name="email" required />
                                 </div>
                                 <div class="form-group">
                                     <button type="submit">Recover</button>

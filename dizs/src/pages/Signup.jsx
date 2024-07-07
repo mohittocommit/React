@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Input from '../components/form/Input'
 
 const Signup = () => {
   return (
@@ -12,19 +13,20 @@ const Signup = () => {
                             <form>
                                 <div class="form-group">
                                     <label for="username">Name:</label>
-                                    <input type="text" id="name" name="name" required />
+                                    <Input type="text" name="name" required/>
+                                    <input  />
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Email:</label>
-                                    <input type="email" id="email" name="email" required />
+                                    <Input type="email" name="email" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Phone:</label>
-                                    <input type="text" id="phone" name="phone" required />
+                                    <Input type="text" name="phone" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password:</label>
-                                    <input type="password" id="password" name="password" required />
+                                    <Input type="password" name="password" required />
                                 </div>
                                 <div class="form-group">
                                     <button type="submit">Sign Up</button>

@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/login.css';
 
+import Input from '../components/form/Input';
+
 const Login = () => {
     return (
         <div className='page-login page'>
@@ -13,11 +15,11 @@ const Login = () => {
                             <form>
                                 <div class="form-group">
                                     <label for="username">Username:</label>
-                                    <input type="text" id="username" name="username" required />
+                                    <Input type="text" name="username" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password:</label>
-                                    <input type="password" id="password" name="password" required />
+                                    <Input type="password" name="password" required />
                                 </div>
                                 <div class="form-group forgot-password-link">
                                     <Link to="/forgot-password">Forgot Password?</Link>
@@ -25,7 +27,7 @@ const Login = () => {
                                 <div class="form-group">
                                     <button type="submit">Login</button>
                                 </div>
-                                
+
                                 <div class="form-group signup-link">
                                     Don't have an account? <Link to="/signup">Sign up</Link>
                                 </div>
