@@ -19,7 +19,7 @@ const ForgotPassword = () => {
                                     <button type="submit">Recover</button>
                                 </div>
                                 <div className="form-group signup-link">
-                                    Remember your password? <Link to="/login">Log In</Link>
+                                    Remember your password? <Link to="/">Log In</Link>
                                 </div>
                             </form>
                         </div>

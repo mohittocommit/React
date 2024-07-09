@@ -2,8 +2,6 @@
 import { authApi } from './api';
 import apiEndpoints from './constants';
 
-console.log("apiEndpoints",apiEndpoints)
-
 export const loginUser = async (userPayload) => {
     try {
         const response = await authApi.post(apiEndpoints.login, userPayload);
@@ -15,6 +13,14 @@ export const loginUser = async (userPayload) => {
 export const getAllStudent = async (userPayload) => {
     try {
         const response = await authApi.post(apiEndpoints.allStudents, userPayload);
+        return response;
+    } catch (error) {
+        return handleError(error);
+    }
+};
+export const addStudent = async (userPayload) => {
+    try {
+        const response = await authApi.post(apiEndpoints.saveStudent, userPayload);
         return response;
     } catch (error) {
         return handleError(error);

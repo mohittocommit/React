@@ -31,7 +31,7 @@ const Signup = () => {
                                     <button type="submit">Sign Up</button>
                                 </div>
                                 <div className="form-group signup-link">
-                                    Already have an account? <Link to="/login">Log In</Link>
+                                    Already have an account? <Link to="/">Log In</Link>
                                 </div>
                             </form>
                         </div>

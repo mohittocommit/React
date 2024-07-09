@@ -13,12 +13,13 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: var(--font-size);
 }
+/* Button Styling */
 button {
   background-color: var(--primary-color);
   padding: 12px 30px;
   border: none;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   width: 100%;
   font-size: 16px;
@@ -32,6 +33,7 @@ button:disabled {
   color: #000;
   border: 1px solid;
 }
+
 a {
   text-decoration: none;
   color: var(--primary-color);
@@ -94,6 +96,12 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #ddd;
 }
+tbody td button {
+  width: auto;
+  padding: 6px 12px;
+  font-size: var(--font-size);
+  margin: 2px;
+}
 
 /* flex box */
 .d-flex {
@@ -110,6 +118,44 @@ tbody tr:hover {
 }
 .align-items-center {
   align-items: center;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  width: 450px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.modal-header {
+  background-color: #212121;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+  padding: 15px 30px;
+}
+.modal-close {
+  cursor: pointer;
+}
+.modal-body {
+  padding: 15px 30px;
+  height: 500px;
+  overflow: scroll;
+}
+.modal-body .form-group {
+  margin-bottom: 15px;
 }
 
 /* form global styling */
@@ -139,3 +185,4 @@ tbody tr:hover {
   font-size: 12px;
   margin-top: 5px;
 }
+

@@ -1,7 +1,7 @@
 import React from 'react'
 
-const DataTable = ({ studentData }) => {
-    console.log(studentData)
+const DataTable = ({ studentData, handleUpdateButtonClick }) => {
+    const sortedStudentData = JSON?.parse(studentData).reverse();
     return (
         <div className='table-data'>
             <table>
@@ -21,104 +21,28 @@ const DataTable = ({ studentData }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {
-                        studentData?.map((item,index) => {
+                    {
+                        sortedStudentData?.map((item,index) => {
                             return (
                                 <tr>
-                                    <td>2.</td>
+                                    <td>{index+1}.</td>
                                     <td>{item?.studentname}</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>test</td>
-                                    <td>Edit</td>
+                                    <td>{item?.fathername}</td>
+                                    <td>{item?.mothername}</td>
+                                    <td>{item?.primaryphonenumber}</td>
+                                    <td>{item?.secondaryphonenumber}</td>
+                                    <td>{item?.address}</td>
+                                    <td>{item?.dob}</td>
+                                    <td>{item?.admissiondate}</td>
+                                    <td>{item?.caretakername}</td>
+                                    <td>
+                                        <button className='btn-light' onClick={()=> handleUpdateButtonClick(item)}>Edit</button>
+                                        <button className='btn-light'>Delete</button>
+                                    </td>
                                 </tr>
                             )
                         })
-                    } */}
-                    <tr>
-                        <td>2.</td>
-                        <td>Mohit</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Mohit</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Mohit</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Mohit</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Mohit</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>Edit</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Mohit</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>Edit</td>
-                    </tr>
-
+                    }
                 </tbody>
             </table>
         </div>
