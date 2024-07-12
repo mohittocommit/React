@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { showToast } from '../utils/toast'
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -19,14 +20,21 @@ const SignUp = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const query = new URLSearchParams(formData).toString();
+        const payload = {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            password: formData.password,
+        }
         try {
-            const response = await axios.post(`http://localhost:9001/api/register?${query}`)
+            const response = await axios.post(`http://localhost:9001/api/register`,payload)
             if (response) {
                 showToast('User Registered Successfully!', 'success');
+                navigate("/login");
             }
         } catch (error) {
-            showToast('Some Error Occured!', 'error');
+            console.log("error>>",error)
+            showToast(error?.response?.data?.message, 'error');
             console.log(error)
         }
     }
