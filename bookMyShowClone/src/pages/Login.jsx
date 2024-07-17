@@ -1,7 +1,42 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { showToast } from '../utils/toast'
+
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    })
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        })
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            email: formData.email,
+            password: formData.password,
+        }
+        try {
+            const response = await axios.post(`http://localhost:9001/api/login`,payload)
+            if (response) {
+                await localStorage.setItem("email", payload.email);
+                await localStorage.setItem("token", response.data.token);
+                showToast('Login Successfully!', 'success');
+                navigate("/");
+            }
+        } catch (error) {
+            console.log("error>>",error)
+            showToast(error?.response?.data?.message, 'error');
+            console.log(error)
+        }
+    }
     return (
         <>
             <div className='page-login page'>
@@ -11,14 +46,14 @@ const Login = () => {
                             <div className="card mt-5">
                                 <div className="card-body">
                                     <h3 className="card-title text-center mb-4">Login</h3>
-                                    <form>
+                                    <form onSubmit={handleSubmit}>
                                         <div className="mb-3">
                                             <label for="email" className="form-label">Email address</label>
-                                            <input type="email" className="form-control" id="email" placeholder="Enter email" />
+                                            <input type="email" className="form-control" name="email" placeholder="Enter email" onChange={handleChange} />
                                         </div>
                                         <div className="mb-3">  
                                             <label for="password" className="form-label">Password</label>
-                                            <input type="password" className="form-control" id="password" placeholder="Password" />
+                                            <input type="password" className="form-control" name="password" placeholder="Password" onChange={handleChange} />
                                         </div>
                                         <div className="mb-3 text-end">
                                             <Link to="/forgot-password">Forgot Password</Link>

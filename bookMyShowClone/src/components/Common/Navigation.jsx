@@ -22,6 +22,8 @@ import NotFound from '../../pages/NotFound';
 
 
 import ThemeContext from '../../context/ThemeContext';
+import PublicRoute from '../Routes/PublicRoute';
+import PrivateRoute from '../Routes/PrivateRoute';
 
 
 const Navigation = () => {
@@ -38,11 +40,11 @@ const Navigation = () => {
                         <Route path="pages/counter" element={<Counter />} />
                         <Route path="pages/blog" element={<Blog />} />
                         <Route path="posts/:id" element={<BlogDetail />} />
-                        <Route path="pages/add-post" element={<AddPost />} />
+                        <Route path="pages/add-post" element={<PrivateRoute><AddPost /></PrivateRoute>} />
                         <Route path="pages/githubusers" element={<GitHubUsers />} />
                         <Route path="/pages/contact" element={<Contact />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/login" element={<PublicRoute><Login /></PublicRoute> } />
+                        <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
                         <Route path="forgot-password" element={<ForgotPassword />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
