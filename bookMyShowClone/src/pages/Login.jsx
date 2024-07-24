@@ -29,7 +29,7 @@ const Login = () => {
                 await localStorage.setItem("email", payload.email);
                 await localStorage.setItem("token", response.data.token);
                 showToast('Login Successfully!', 'success');
-                navigate("/");
+                navigate("/profile");
             }
         } catch (error) {
             console.log("error>>",error)

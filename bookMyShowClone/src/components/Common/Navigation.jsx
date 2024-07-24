@@ -17,6 +17,7 @@ import GitHubUsers from '../../pages/GitHubUsers';
 import Contact from '../../pages/Contact';
 import Login from '../../pages/Login';
 import SignUp from '../../pages/SignUp';
+import Profile from '../../pages/Profile';
 import ForgotPassword from '../../pages/ForgotPassword';
 import NotFound from '../../pages/NotFound';
 
@@ -24,6 +25,7 @@ import NotFound from '../../pages/NotFound';
 import ThemeContext from '../../context/ThemeContext';
 import PublicRoute from '../Routes/PublicRoute';
 import PrivateRoute from '../Routes/PrivateRoute';
+
 
 
 const Navigation = () => {
@@ -45,6 +47,7 @@ const Navigation = () => {
                         <Route path="/pages/contact" element={<Contact />} />
                         <Route path="/login" element={<PublicRoute><Login /></PublicRoute> } />
                         <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
+                        <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
                         <Route path="forgot-password" element={<ForgotPassword />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
