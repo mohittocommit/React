@@ -11,7 +11,6 @@ const ToDo = () => {
     const handleToDoChange = (e) => {
         setToDoItem(e.target.value)
     }
-    console.log(toDoList)
     const handleAddToDo = () => {
         
         if(isEditing) {

@@ -32,9 +32,7 @@ const Login = () => {
                 navigate("/profile");
             }
         } catch (error) {
-            console.log("error>>",error)
             showToast(error?.response?.data?.message, 'error');
-            console.log(error)
         }
     }
     return (
@@ -48,11 +46,11 @@ const Login = () => {
                                     <h3 className="card-title text-center mb-4">Login</h3>
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-3">
-                                            <label for="email" className="form-label">Email address</label>
+                                            <label htmlFor="email" className="form-label">Email address</label>
                                             <input type="email" className="form-control" name="email" placeholder="Enter email" onChange={handleChange} />
                                         </div>
                                         <div className="mb-3">  
-                                            <label for="password" className="form-label">Password</label>
+                                            <label htmlFor="password" className="form-label">Password</label>
                                             <input type="password" className="form-control" name="password" placeholder="Password" onChange={handleChange} />
                                         </div>
                                         <div className="mb-3 text-end">

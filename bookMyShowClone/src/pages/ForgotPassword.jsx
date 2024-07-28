@@ -12,7 +12,7 @@ const ForgotPassword = () => {
                         <h3 className="card-title text-center mb-4">Forgot Password</h3>
                         <form>
                             <div className="mb-3">
-                                <label for="email" className="form-label">Email address</label>
+                                <label htmlFor="email" className="form-label">Email address</label>
                                 <input type="email" className="form-control" id="email" placeholder="Enter your email" />
                             </div>
                             <button type="submit" className="btn btn-primary w-100">Send Reset Link</button>

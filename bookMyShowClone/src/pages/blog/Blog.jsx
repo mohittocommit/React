@@ -13,7 +13,6 @@ const Blog = () => {
         try {
             const response = await axios.get("http://localhost:9001/posts");
             setBlogData(response.data)
-            console.log(response.data)
             const blogCategories = response.data.map((item) => item.category )
             const uniqueCategoris = [...new Set(blogCategories)]
             setBlogCat(uniqueCategoris)
